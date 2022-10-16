@@ -10,7 +10,7 @@ Image data is then displayed on a GraphicsView in which the frame can be changed
 ## To Do
 - Extensive testing with different files
 - Threading/Parallelism + numerous performance optimizations
-- Ability to clear the cache and save disk space
+- Ability to clear the cache and save disk space (although cache footprint is really small)
 - Implementation of window/level presets & ability to adjust these via gestures
 - Zooming and panning
 - ZIP/RAR support + other file formats 
