@@ -1,0 +1,30 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MAUI_DICOM_Viewer"
+             xmlns:pages="clr-namespace:MAUI_DICOM_Viewer.Pages"
+             x:Class="MAUI_DICOM_Viewer.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Application.Resources>
+
+    
+    <!--<Application.MainPage>
+        <Shell>
+            <TabBar x:Name="PhoneTabs">
+                <Tab Title="Viewer">
+                    <ShellContent ContentTemplate="{DataTemplate pages:ViewerPage}" Route="ViewerPage"/>
+                </Tab>
+                <Tab Title="Browser">
+                    <ShellContent ContentTemplate="{DataTemplate pages:BrowserPage}" Route="BrowserPage"/>
+                </Tab>
+            </TabBar>
+        </Shell>
+    </Application.MainPage>-->
+</Application>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_DICOM_Viewer.Pages.ViewerPage"
+             xmlns:drawables="clr-namespace:MAUI_DICOM_Viewer.Pages"
+             xmlns:epj="clr-namespace:epj.ProgressBar.Maui;assembly=epj.ProgressBar.Maui"
+             BackgroundColor="Black"
+             Title="">
+    
+    <!--https://romannurik.github.io/AndroidAssetStudio/-->
+    
+    <Shell.TitleView>
+        <Grid x:Name="GridImport" ColumnDefinitions="*, Auto" ColumnSpacing="0" Padding="0">
+            <HorizontalStackLayout>
+                <Picker x:Name="PickerRoot"
+                    HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
+                    Grid.Row="0" Grid.Column="0"
+                    TextColor="White"
+                    SelectedIndexChanged="PickerRoot_SelectedIndexChanged"
+                    Title="">
+                </Picker>
+                <Button x:Name="BtnFocusPicker" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
+                        ImageSource="ic_dropdown.png" FontSize="Large" IsVisible="False" Clicked="BtnFocusPicker_Clicked"/>
+            </HorizontalStackLayout>
+            <Button x:Name="BtnImport" ImageSource="ic_plus.png" Text="Select File/Folder" Margin="2" 
+                    Clicked="BtnImport_Clicked" BackgroundColor="{StaticResource Primary}" HorizontalOptions="End"/>
+        </Grid>
+    </Shell.TitleView>
+
+    <ContentPage.Resources>
+        <drawables:FrameDraw x:Key="FrameDraw" />
+    </ContentPage.Resources>
+
+    <VerticalStackLayout           
+            Spacing="0"
+            Padding="0,0,0,0">
+        <Grid RowDefinitions="*, Auto" RowSpacing="0" Padding="0">
+
+            <Grid Grid.Row="0" Grid.Column="0" x:Name="GridSliderAndInfo" IsVisible="true">
+                <VerticalStackLayout>
+                    <Grid x:Name="GridSlider" IsVisible="false">
+                        <VerticalStackLayout>
+                            <Grid Padding="12,20,12,0">
+                                <Label x:Name="LblStartSlider" TextColor="White" FontSize="Small" Text="1" HorizontalOptions="Start"/>
+                                <Label x:Name="LblFrameNo" TextColor="DimGray" FontSize="Micro" Text="" HorizontalOptions="Center" Padding="0,10,0,0"/>
+                                <Label x:Name="LblEndSlider" TextColor="White" FontSize="Small" Text="100" HorizontalOptions="End"/>
+                            </Grid>
+                            <Slider x:Name="SliderFrame" 
+                                Minimum="1"
+                                ThumbColor="#018AD7"
+                                MinimumTrackColor="#018AD7"
+                                MaximumTrackColor="White"
+                                ValueChanged="SliderFrame_ValueChanged"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Grid x:Name="GridDicomInfo" Grid.Row="1" Grid.Column="0" Padding="10,20,10,0" BindingContext="{Binding DicomInfoModel}">
+                        <Label x:Name="LblPatientInfo" FontSize="Small" Text="{Binding PatientInfo}" TextColor="White" HorizontalOptions="Start"/>
+                        <Label x:Name="LblStudyInfo" FontSize="Micro" Text="{Binding StudyInfo}" TextColor="White" HorizontalTextAlignment="End" HorizontalOptions="End"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </Grid>
+            
+            <Grid x:Name="GridProgBar" Grid.Row="1" Grid.Column="0" IsVisible="False" BindingContext="{Binding ProgressModel}" Padding="0,220,0,0">
+                <VerticalStackLayout>
+                    <epj:ProgressBar x:Name="ProgBar" 
+                                BaseColor="White"
+                                VerticalOptions="End"
+                                HeightRequest="10"
+                                Margin="15,0"
+                                Progress="{Binding PFloat}"
+                                UseGradient="True"
+                                ProgressColor="Cyan"
+                                GradientColor="LimeGreen"/>
+
+                    <Grid x:Name="GridProgBarLbls" >
+                        <Label x:Name="LblPercentProgress" TextColor="White" Text="{Binding PPercent}" HorizontalOptions="Center"/>
+                        <Label x:Name="LblImageNumberProgress" TextColor="White" Text="{Binding PText}" Padding="0,0,15,0" FontSize="Micro" HorizontalOptions="End"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </Grid>
+
+            <GraphicsView IsVisible="True" Grid.Row="1" Grid.Column="0" x:Name="GFX" Drawable="{StaticResource FrameDraw}" AnchorX="0" AnchorY="0">
+                <GraphicsView.GestureRecognizers>
+                    <PanGestureRecognizer PanUpdated="OnPanUpdated"/>
+                </GraphicsView.GestureRecognizers>
+            </GraphicsView>
+
+        </Grid>
+    </VerticalStackLayout>
+
+</ContentPage>

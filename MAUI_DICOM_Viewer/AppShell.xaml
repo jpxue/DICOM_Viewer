@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MAUI_DICOM_Viewer.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MAUI_DICOM_Viewer"
+    xmlns:pages="clr-namespace:MAUI_DICOM_Viewer.Pages"
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:ViewerPage}"
+        Route="ViewerPage"/>
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:BrowserPage}"
+        Route="BrowserPage"/>
+
+</Shell>
