@@ -1,5 +1,5 @@
 # MAUI DICOM Viewer
-A simple mobile DICOM file viewer built using the .NET Multi-platform App UI (MAUI) framework released 6 months ago. 
+A mobile DICOM file image viewer built using the .NET Multi-platform App UI (MAUI) framework released 6 months ago. 
 
 Being developed on Android OS 10.0 but still requires ample testing as it is challenging to find imaging files online without going through imaging banks.
 
@@ -9,6 +9,10 @@ Image data is then displayed on a GraphicsView in which the frame can be changed
 ## Demonstration
 
 [Video](https://www.youtube.com/watch?v=wFbUG_v2fn0) demonstrating loading of single files as well as a directory containing a CT scan.
+
+<p align="center">
+   <img src="https://github.com/jpxue/DICOM_Viewer/blob/main/demo.gif" alt="animated" width="400"/>
+</p>
 
 ## To Do
 - Extensive testing 
