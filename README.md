@@ -1,7 +1,7 @@
 # MAUI DICOM Viewer
-A mobile DICOM file image viewer built using the .NET Multi-platform App UI (MAUI) framework released 6 months ago. 
+A mobile DICOM file image viewer built using the .NET Multi-platform App UI (MAUI) framework released just a few months ago. 
 
-Being developed on Android OS 10.0 but still requires ample testing as it is challenging to find imaging files online without going through imaging banks.
+Being developed on Android OS 10.0 but still requires ample testing as it is challenging to find imaging files online without going through radiology/imaging banks.
 
 Loads a set of DICOM files using the [fo-dicom](https://github.com/fo-dicom/fo-dicom) library, decodes the images using the in-built codecs (by [Efferent-Health](https://github.com/Efferent-Health/fo-dicom.Codecs) or in the case of mobile, [LibJPEG.NET](https://github.com/BitMiracle/libjpeg.net)) and caches the image data to physical storage. 
 Image data is then displayed on a GraphicsView in which the frame can be changed via a slider or by swiping across the image itself. 
