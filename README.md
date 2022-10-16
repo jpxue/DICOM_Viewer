@@ -1,4 +1,4 @@
-# DICOM_Viewer
+# DICOM Viewer
 A simple DICOM file viewer built using the .NET Multi-platform App UI (MAUI) framework. 
 Currently being built and tested on Android 10.0.
 
